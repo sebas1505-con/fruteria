@@ -1,0 +1,169 @@
+:root {
+  --color-principal: #1a202c;
+  --color-secundario: #ecc94b;
+  --color-acento: #f6e05e;
+  --color-fondo: #fefcbf;
+  --blanco: #ffffff;
+  --gris: #718096;
+  --gris-oscuro: #2d3748;
+  --transicion: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-principal);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ----- NAVBAR SIMPLIFICADA CON CARRITO ----- */
+.navbar {
+  background-color: var(--color-principal);
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-secundario);
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transicion);
+}
+
+.cart-btn:hover {
+  color: var(--color-acento);
+}
+
+/* Burbuja con número de productos */
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 3px 6px;
+}
+
+/* ----- CONTENIDO PRINCIPAL ----- */
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 2.5rem;
+  justify-items: center;
+  background-color: var(--color-fondo);
+}
+
+/* ----- CARD DE PRODUCTO ----- */
+.card {
+  background-color: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: var(--transicion);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 270px;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.card-title {
+  color: var(--color-principal);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: var(--transicion);
+}
+
+.card-title:hover {
+  color: var(--color-secundario);
+}
+
+.card-body p {
+  color: var(--gris);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Botón Comprar */
+.btn-comprar {
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.btn-comprar:hover {
+  background-color: var(--color-acento);
+  transform: scale(1.05);
+}
+
+/* ----- FOOTER OPCIONAL ----- */
+footer {
+  text-align: center;
+  background-color: var(--color-principal);
+  color: var(--blanco);
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* ----- RESPONSIVO ----- */
+@media (max-width: 600px) {
+  .navbar h1 {
+    font-size: 1.2rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}

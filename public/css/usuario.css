@@ -1,0 +1,134 @@
+/* Fuente general */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff8cc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  background-color: #1e1f26;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  margin-right: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffd54f;
+}
+
+/* PERFIL */
+.perfil-container {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.perfil-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.perfil-card {
+  background: white;
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.perfil-card img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.perfil-card h3 {
+  color: #c57f17;
+  margin-bottom: 5px;
+}
+
+.perfil-acciones {
+  background: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.perfil-acciones button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffb300;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.perfil-acciones button:hover {
+  background-color: #ff9100;
+}
+
+/* PEDIDOS */
+.pedidos {
+  padding: 40px;
+  text-align: center;
+}
+
+table {
+  width: 70%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+th {
+  background: #c57f17;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1e1f26;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
