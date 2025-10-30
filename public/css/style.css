@@ -144,3 +144,76 @@ footer {
   width: 24px;
   height: 24px;
 }
+/* Oculta el checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Estilo base del icono de hamburguesa */
+.menu-icon {
+  display: block;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Crea las tres líneas usando pseudo-elementos */
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333; /* Color del icono */
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-icon::before {
+  top: 0;
+}
+
+.menu-icon::after {
+  bottom: 0;
+}
+
+.menu-icon span { /* Opcional: para la línea del medio si la quieres manejar por separado */
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* Estilos cuando el checkbox está marcado (:checked) */
+#menu-toggle:checked ~ .menu-icon::before {
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-icon::after {
+  bottom: 50%;
+  transform: rotate(-45deg);
+}
+
+/* Estilos del menú (oculto por defecto) */
+.menu {
+  display: none;
+  width: 250px; /* Ajusta según tus necesidades */
+  height: 100vh;
+  background-color: #f0f0f0;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Posición inicial fuera de la pantalla */
+  transition: left 0.3s ease-in-out;
+}
+
+/* Muestra el menú cuando el checkbox está marcado */
+#menu-toggle:checked ~ .menu {
+  left: 0;
+}

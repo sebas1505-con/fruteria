@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar Sesión - La Mejor Frutería</title>
   <link rel="stylesheet" href="/css/login.css">
-  <link rel="icon" type="image/png" href="imagenes/icono.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="/imagenes/icono.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -17,10 +15,21 @@
       <h1 class="logo">🍉 La Mejor Frutería</h1>
       <h2>Iniciar Sesión</h2>
 
-      <form action="#" method="POST" class="login-form">
+      @if ($errors->any())
+        <div class="alert error">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
+      <form action="{{ route('login.post') }}" method="POST" class="login-form">
+        @csrf
         <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="tucorreo@example.com" required>
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="tucorreo@example.com" required>
         </div>
 
         <div class="form-group">
@@ -31,7 +40,7 @@
         <button type="submit" class="btn-login">Entrar</button>
 
         <p class="extra-text">
-          ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+          ¿No tienes cuenta? <a href="{{ route('register.form') }}">Regístrate aquí</a>
         </p>
         <p class="extra-text">
           <a href="#">¿Olvidaste tu contraseña?</a>

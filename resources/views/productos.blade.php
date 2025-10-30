@@ -17,13 +17,13 @@
       </div>
 
       <ul class="navbar-menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="login.html">Contacto</a></li>
+        <li><a href="{{'/'}}">Inicio</a></li>
+        <li><a href="{{'contacto'}}">Contacto</a></li>
+        <li><a href="{{'sobre'}}">Sobre Nosotros</a></li>
 
       </ul>
 
-      <button class="btn-ver-ahora" onclick="window.location.href='login.html'">
+      <button class="btn-ver-ahora" onclick="window.location.href='{{'login'}}'">
         Iniciar Sesión
       </button>
 
@@ -40,13 +40,13 @@
     <div class="card">
       <img src="imagenes/fruta.jpg" alt="Frutas frescas" />
       <h3>Frutas</h3>
-      <a href="frutas.html" class="btn">Ver más</a>
+      <a href="{{'frutas'}}" class="btn">Ver más</a>
     </div>
 
     <div class="card">
       <img src="imagenes/vegetales.jpg" alt="Vegetales orgánicos" />
       <h3>Verduras</h3>
-      <a href="vegetales.html" class="btn">Ver más</a>
+      <a href="{{'vegetales'}}" class="btn">Ver más</a>
     </div>
   </section>
 

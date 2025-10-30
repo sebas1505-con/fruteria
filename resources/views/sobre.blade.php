@@ -18,10 +18,10 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="sobre.html" class="active">Sobre nosotros</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="{{'/'}}">Inicio</a></li>
+        <li><a href="{{'productos'}}">Productos</a></li>
+        <li><a href="{{'sobre'}}" class="active">Sobre nosotros</a></li>
+        <li><a href="{{'contacto'}}">Contacto</a></li>
       </ul>
     </nav>
   </header>

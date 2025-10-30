@@ -37,7 +37,7 @@
     <div class="hero-text">
       <h2>En FrutaPura encuentras lo mejor, con frescura y calidad</h2>
       <p>Las frutas más deliciosas y frescas directo del campo a tu mesa.</p>
-      <a href="productos.html" class="btn">Ver productos</a>
+      <a href="{{'productos'}}" class="btn">Ver productos</a>
     </div>
   </section>
   <section class="destacados">
@@ -65,4 +65,5 @@
     <p>Hecho con amor y por la naturaleza</p>
   </footer>
 </body>
+
 </html>

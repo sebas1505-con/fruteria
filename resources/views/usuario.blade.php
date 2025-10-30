@@ -25,9 +25,11 @@
     </ul>
   </nav>
 </header>
-
-<section class="perfil-container">
-  <h2>¡Bienvenido, {{ Auth::user()->name }}! 🍏</h2>
+<h1>Bienvenido, {{ Auth::user()->nombre }}</h1>
+<form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit">Cerrar sesión</button>
+</form>
 
   <div class="perfil-info">
     <div class="perfil-card">
