@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->string('fecha_venta');
-            $table->decimal('nombre', 10, 2);
-            $table->enum('estado', ['pendiente', 'pagada', 'cancelada'])->default('pendiente');
             $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+            $table->dateTime('fecha_venta')->default(0);
+            $table->decimal('total', 10, 2)->default(0);
+            $table->enum('estado', ['pendiente', 'pagada', 'cancelada'])->default('pendiente');
             $table->timestamps();
         });
     }
