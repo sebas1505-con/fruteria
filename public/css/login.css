@@ -15,21 +15,48 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #fefcbf 0%, #ecc94b 50%, #f6e05e 100%);
+  background: 
+    linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+    url('https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-/* ----- CONTENEDOR PRINCIPAL ----- */
+/* ==============================
+   BOTÓN VOLVER
+============================== */
+.btn-volver {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transicion);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-volver:hover {
+  background-color: var(--color-acento);
+  transform: scale(1.05);
+}
+
+/* ==============================
+   LOGIN CARD
+============================== */
 .login-container {
   width: 100%;
   max-width: 400px;
   padding: 20px;
 }
 
-/* ----- TARJETA DE LOGIN ----- */
 .login-card {
   background-color: var(--blanco);
   border-radius: 15px;
@@ -52,7 +79,7 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* ----- FORMULARIO ----- */
+/* FORMULARIO */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -84,7 +111,7 @@ input:focus {
   outline: none;
 }
 
-/* ----- BOTÓN ----- */
+/* BOTÓN LOGIN */
 .btn-login {
   background-color: var(--color-secundario);
   color: var(--color-principal);
@@ -102,9 +129,15 @@ input:focus {
   transform: scale(1.05);
 }
 
-/* ----- ENLACES ----- */
+/* ENLACES */
 .extra-text {
   font-size: 0.9rem;
   color: var(--gris);
   margin-top: 0.8rem;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -12,9 +12,6 @@ Route::get('/frutas', function () {
 Route::get('/contacto', function () {
     return view('contacto');
 });
-Route::get('/login', function () {
-    return view('login');
-});
 Route::get('/productos', function () {
     return view('productos');
 });
@@ -27,6 +24,28 @@ Route::get('/vegetales', function () {
 Route::get('/registrar', function () {
     return view('registrar');
 });
+Route::get('/compra', function () {
+    return view('compra');
+});
+Route::get('/usuario', function () {
+    return view('usuario');
+})->name('usuario');
+Route::get('/error', function () {
+    return view('error');
+})->name('error');
+Route::get('/compra', function () {
+    return view('compra');
+})->name('compra');
+Route::get('/carrito', function () {
+    return view('carrito');
+})->name('carrito');
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
+Route::get('/pago', function () {
+    return view('pago');
+})->name('pago');
+
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -35,7 +54,3 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-
-Route::get('/usuario', function () {
-    return view('usuario');
-})->middleware('auth')->name('usuario');

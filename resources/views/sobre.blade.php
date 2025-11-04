@@ -13,13 +13,13 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      <img src="images/logo.png" alt="Logo FrutaPura" />
+      <img src="imagenes/icono.jpg" alt="Logo FrutaPura" />
       <h1>FrutaPura</h1>
     </div>
     <nav>
       <ul>
         <li><a href="{{'/'}}">Inicio</a></li>
-        <li><a href="{{'productos'}}">Productos</a></li>
+        <li><a href="{{'login'}}">Productos</a></li>
         <li><a href="{{'sobre'}}" class="active">Sobre nosotros</a></li>
         <li><a href="{{'contacto'}}">Contacto</a></li>
       </ul>

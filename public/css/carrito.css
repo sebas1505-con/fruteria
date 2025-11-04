@@ -1,0 +1,95 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff8e1;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #1e1f26;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+header nav a, .btn {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  background: #ffb300;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+header nav a:hover, .btn:hover {
+  background: #ffa000;
+}
+
+main {
+  padding: 40px;
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #ffb300;
+  color: white;
+}
+
+td button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+td button:hover {
+  background: #d32f2f;
+}
+
+.total-container {
+  margin-top: 20px;
+}
+
+.btn-comprar {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.btn-comprar:hover {
+  background: #388e3c;
+}
+
+footer {
+  background-color: #1e1f26;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}

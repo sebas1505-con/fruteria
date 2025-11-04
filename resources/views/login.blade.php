@@ -10,9 +10,12 @@
 </head>
 <body>
 
+  <!-- BOTÓN VOLVER -->
+  <a href="{{ url('/') }}" class="btn-volver">← Volver al inicio</a>
+
   <div class="login-container">
     <div class="login-card">
-      <h1 class="logo">🍉 La Mejor Frutería</h1>
+      <h1 class="logo">La Mejor Frutería</h1>
       <h2>Iniciar Sesión</h2>
 
       @if ($errors->any())
@@ -50,4 +53,11 @@
   </div>
 
 </body>
+<script>
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function () {
+    window.location.replace("/login");
+  };
+</script>
+
 </html>

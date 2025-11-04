@@ -19,9 +19,9 @@
       <h1 class="logo">La Mejor Frutería 🍊</h1>
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="productos.html">Productos</a></li>
-          <li><a href="contacto.html" class="active">Contacto</a></li>
+          <li><a href="{{'/'}}">Inicio</a></li>
+          <li><a href="{{'productos'}}">Productos</a></li>
+          <li><a href="{{'contacto'}}" class="active">Contacto</a></li>
         </ul>
       </nav>
     </div>

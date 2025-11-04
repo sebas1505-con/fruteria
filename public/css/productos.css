@@ -172,3 +172,39 @@ footer p:first-child {
     display: block;
   }
 }
+.btn-comprar {
+  position: relative;
+  display: inline-block;
+  padding: 10px 22px;
+  color: white;
+  background: #ffb300;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-comprar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.btn-comprar:hover::after {
+  left: 120%;
+}
+
+.btn-comprar:hover {
+  background: #ff9100;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 145, 0, 0.5);
+}

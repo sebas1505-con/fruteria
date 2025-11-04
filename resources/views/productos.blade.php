@@ -17,15 +17,11 @@
       </div>
 
       <ul class="navbar-menu">
-        <li><a href="{{'/'}}">Inicio</a></li>
+        <li><a href="{{'/usuario'}}">Volver</a></li>
         <li><a href="{{'contacto'}}">Contacto</a></li>
         <li><a href="{{'sobre'}}">Sobre Nosotros</a></li>
 
       </ul>
-
-      <button class="btn-ver-ahora" onclick="window.location.href='{{'login'}}'">
-        Iniciar Sesión
-      </button>
 
       <button class="menu-btn" id="menu-btn">
         <svg class="menu-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
