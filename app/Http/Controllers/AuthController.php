@@ -36,7 +36,7 @@ class AuthController extends Controller
     // Mostrar registro
     public function showRegisterForm()
     {
-        return view('register'); // archivo resources/views/register.blade.php
+        return view('registrar'); 
     }
 
     // Procesar registro

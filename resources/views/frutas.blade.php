@@ -145,67 +145,111 @@
     </div>
   </aside>
 
-  <!-- 🔹 FOOTER -->
+  
   <footer>
     <p>© 2025 La Mejor Frutería · Todos los derechos reservados 🍇</p>
   </footer>
 
-  <!-- 🔹 SCRIPT -->
   <script>
-    let carrito = {};
-    const cartCount = document.getElementById('cart-count');
-    const cartSidebar = document.getElementById('cart-sidebar');
-    const cartItemsList = document.getElementById('cart-items');
-    const totalDisplay = document.getElementById('total');
+  // ==============================
+  // 🔹 Variables globales
+  // ==============================
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
 
-    function agregarAlCarrito(nombre, precio) {
-      if (carrito[nombre]) {
-        carrito[nombre].cantidad++;
-      } else {
-        carrito[nombre] = { precio, cantidad: 1 };
-      }
-      actualizarCarrito();
+  const cartCount = document.getElementById('cart-count');
+  const cartItemsList = document.getElementById('cart-items');
+  const totalDisplay = document.getElementById('total');
+
+  // ==============================
+  // 🔹 Función: Agregar al carrito
+  // ==============================
+  function agregarAlCarrito(nombre, precio) {
+    if (carrito[nombre]) {
+      carrito[nombre].cantidad++;
+    } else {
+      carrito[nombre] = { precio, cantidad: 1 };
+    }
+    guardarCarrito();
+    actualizarCarrito();
+  }
+
+  // ==============================
+  // 🔹 Función: Eliminar producto
+  // ==============================
+  function eliminarDelCarrito(nombre) {
+    delete carrito[nombre];
+    guardarCarrito();
+    actualizarCarrito();
+  }
+
+  // ==============================
+  // 🔹 Función: Actualizar vista del carrito
+  // ==============================
+  function actualizarCarrito() {
+    if (!cartItemsList) return; // Evita error si el HTML no tiene lista
+    cartItemsList.innerHTML = "";
+    let total = 0;
+    let count = 0;
+
+    for (const [nombre, { precio, cantidad }] of Object.entries(carrito)) {
+      const subtotal = precio * cantidad;
+      total += subtotal;
+      count += cantidad;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${nombre} × ${cantidad} = $${subtotal}
+        <button class="btn-eliminar" onclick="eliminarDelCarrito('${nombre}')">🗑️</button>
+      `;
+      cartItemsList.appendChild(li);
     }
 
-    function eliminarDelCarrito(nombre) {
-      delete carrito[nombre];
-      actualizarCarrito();
-    }
+    if (totalDisplay) totalDisplay.textContent = `$${total}`;
+    if (cartCount) cartCount.textContent = count;
+  }
 
-    function actualizarCarrito() {
-      cartItemsList.innerHTML = "";
-      let total = 0;
-      let count = 0;
+  // ==============================
+  // 🔹 Función: Guardar carrito
+  // ==============================
+  function guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }
 
-      for (const [nombre, { precio, cantidad }] of Object.entries(carrito)) {
-        const subtotal = precio * cantidad;
-        total += subtotal;
-        count += cantidad;
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-          ${nombre} × ${cantidad} = $${subtotal}
-          <button class="btn-eliminar" onclick="eliminarDelCarrito('${nombre}')">🗑️</button>
-        `;
-        cartItemsList.appendChild(li);
-      }
-
-      totalDisplay.textContent = `$${total}`;
-      cartCount.textContent = count;
-    }
-
-    document.getElementById('cart-btn').addEventListener('click', () => {
-      cartSidebar.classList.add('visible');
+  // ==============================
+  // 🔹 Botón: Carrito → Ir a la vista "carrito"
+  // ==============================
+  const btnCarrito = document.getElementById('cart-btn');
+  if (btnCarrito) {
+    btnCarrito.addEventListener('click', () => {
+      window.location.href = "{{ url('carrito') }}"; // redirige a la vista carrito
     });
+  }
 
-    document.getElementById('close-cart').addEventListener('click', () => {
-      cartSidebar.classList.remove('visible');
-    });
-
-    document.getElementById('btn-finalizar').addEventListener('click', () => {
+  // ==============================
+  // 🔹 Botón: Finalizar compra
+  // ==============================
+  const btnFinalizar = document.getElementById('btn-finalizar');
+  if (btnFinalizar) {
+    btnFinalizar.addEventListener('click', () => {
       localStorage.setItem('carrito', JSON.stringify(carrito));
-      window.location.href = '{{'compra'}}';
+      window.location.href = "{{ url('compra') }}";
     });
-  </script>
+  }
+
+  // ==============================
+  // 🔹 Cerrar sesión → limpiar carrito
+  // ==============================
+  const logoutLink = document.querySelector('a[href*="login"]');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', () => {
+      localStorage.removeItem('carrito');
+    });
+  }
+
+  // ==============================
+  // 🔹 Al cargar: actualizar vista
+  // ==============================
+  document.addEventListener('DOMContentLoaded', actualizarCarrito);
+</script>
 </body>
 </html>
