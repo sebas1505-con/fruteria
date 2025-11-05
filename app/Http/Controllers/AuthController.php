@@ -18,25 +18,29 @@ class AuthController extends Controller
     // Procesar login
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'correo' => ['required','email'],
-            'password' => ['required'],
+        $request->validate([
+            'correo' => 'required|email',
+            'password' => 'required'
         ]);
 
-        if (Auth::attempt($credentials)) {
+        // Intentar iniciar sesión usando los campos personalizados
+        if (Auth::attempt([
+            'correo' => $request->correo,
+            'password' => $request->password
+        ])) {
             $request->session()->regenerate();
-            return redirect()->route('usuario'); // redirige a usuario
+            return redirect()->route('usuario')->with('success', '✅ Inicio de sesión exitoso. Bienvenido!');
         }
 
         return back()->withErrors([
-            'correo' => 'Las credenciales no coinciden con nuestros registros.',
-        ]);
+            'correo' => '❌ Credenciales incorrectas. Verifica correo y contraseña.',
+        ])->withInput();
     }
 
     // Mostrar registro
     public function showRegisterForm()
     {
-        return view('registrar'); 
+        return view('registrar');
     }
 
     // Procesar registro
@@ -63,6 +67,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/login')->with('success', '✅ Sesión cerrada correctamente.');
     }
 }

@@ -58,53 +58,57 @@
   </main>
 
   <script>
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || {};
-    const listaCompra = document.getElementById('lista-compra');
-    const totalFinal = document.getElementById('total-final');
-    let total = 0;
+  const carrito = JSON.parse(localStorage.getItem('carrito')) || {};
+  let total = 0;
+  let productos_envio = [];
 
-    for (const [nombre, { precio, cantidad }] of Object.entries(carrito)) {
-      const subtotal = precio * cantidad;
-      total += subtotal;
+  const lista = document.getElementById('lista-compra');
+  const totalFinal = document.getElementById('total-final');
 
-      const li = document.createElement('li');
-      li.textContent = `${nombre} × ${cantidad} = $${subtotal}`;
-      listaCompra.appendChild(li);
-    }
+  for (const [nombre, { precio, cantidad }] of Object.entries(carrito)) {
+    const subtotal = precio * cantidad;
+    total += subtotal;
 
-    totalFinal.textContent = `Total a pagar: $${total}`;
-
-    document.getElementById('form-registro').addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const nombre = document.getElementById('nombre').value;
-      const correo = document.getElementById('correo').value;
-      const direccion = document.getElementById('direccion').value;
-      const metodo = document.getElementById('metodo').value;
-
-      if (!nombre || !correo || !direccion || !metodo) {
-        alert("Por favor completa todos los campos antes de confirmar tu pedido.");
-        return;
-      }
-
-      const venta = {
-        cliente: { nombre, correo, direccion },
-        metodo_pago: metodo,
-        productos: Object.entries(carrito).map(([nombre, datos]) => ({
-          producto: nombre,
-          cantidad: datos.cantidad,
-          precio_unitario: datos.precio,
-          subtotal: datos.precio * datos.cantidad
-        })),
-        total: total,
-        fecha: new Date().toLocaleString()
-      };
-
-      console.log("📦 Datos enviados al servidor:", venta);
-      alert(`Gracias por tu compra, ${nombre} 🥰 Tu pedido fue registrado.`);
-      localStorage.removeItem('carrito');
-      window.location.href = "{{'frutas'}}";
+    productos_envio.push({
+      producto: nombre,
+      cantidad,
+      precio_unitario: precio
     });
-  </script>
+
+    const li = document.createElement('li');
+    li.textContent = `${nombre} × ${cantidad} = $${subtotal}`;
+    lista.appendChild(li);
+  }
+
+  totalFinal.textContent = `Total a pagar: $${total}`;
+
+  document.querySelector('#form-registro').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    
+    const data = {
+      nombre: formData.get('nombre'),
+      correo: formData.get('correo'),
+      direccion: formData.get('direccion'),
+      metodo: formData.get('metodo'),
+      productos: productos_envio,
+      total: total
+    };
+
+    const response = await fetch("{{ route('compra.finalizar') }}", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": "{{ csrf_token() }}" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    alert(result.mensaje);
+
+    localStorage.removeItem('carrito');
+    window.location.href = "/frutas";
+  });
+</script>
+
 </body>
 </html>

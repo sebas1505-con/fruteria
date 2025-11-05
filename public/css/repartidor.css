@@ -1,0 +1,137 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.nav {
+  background: #2b9348;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.logo {
+  margin: 0;
+  font-size: 22px;
+}
+
+.btn-logout {
+  background: #ff4040;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-logout:hover {
+  background: #c70d0d;
+}
+
+/* Cards */
+.pedidos-container {
+  padding: 20px;
+}
+
+.pedido-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pedido-card h3 {
+  margin: 0;
+  color: #2b9348;
+}
+
+.estado {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.encamino {
+  color: #ff9800;
+}
+
+.entregado {
+  color: #007bff;
+}
+
+.btn-entregar {
+  background: #2b9348;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-top: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-entregar:hover {
+  background: #1f7035;
+}
+
+.btn-gps {
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-gps:hover {
+  background: #0056b3;
+}
+
+/* Mapa flotante */
+#mapa-contenedor {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+  border-radius: 10px 10px 0 0;
+  display: none;
+}
+
+#mapa-contenedor.mapa-oculto {
+  display: none;
+}
+
+.btn-cerrar {
+  margin-top: 10px;
+  background: #ff4040;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Alertas */
+.alert-success {
+  background: #a3ffa4;
+  color: #105c10;
+  padding: 10px;
+  margin: 15px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.no-pedidos {
+  text-align: center;
+  color: #444;
+}

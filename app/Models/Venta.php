@@ -24,4 +24,16 @@ class Venta extends Model
     {
         return $this->hasOne(Envio::class);
     }
+    public function cliente() {
+    return $this->belongsTo(Cliente::class);
+}
+
+public function detalles() {
+    return $this->hasMany(DetalleVenta::class);
+}
+
+public function envio() {
+    return $this->hasOne(Envio::class);
+}
+
 }

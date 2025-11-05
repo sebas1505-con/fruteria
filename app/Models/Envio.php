@@ -14,4 +14,8 @@ class Envio extends Model
     {
         return $this->belongsTo(Venta::class);
     }
+    public function ventas() {
+    return $this->belongsTo(Venta::class);
+}
+
 }

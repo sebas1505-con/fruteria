@@ -3,23 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FrutaPura 🍍 | Usuario</title>
+  <title>FrutaPura</title>
   <link rel="stylesheet" href="{{ asset('css/usuario.css') }}">
   <link rel="icon" type="image/png" href="{{ asset('imagenes/icono.jpg') }}">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <!-- HEADER -->
   <header class="navbar">
-    <h1 class="logo">🍓 FrutaPura</h1>
+    <h1 class="logo">FrutaPura</h1>
     <nav>
       <ul class="nav-menu">
         <li><a href="{{ url('/') }}">Inicio</a></li>
         <li><a href="{{ url('frutas') }}" class="active">Frutas</a></li>
         <li><a href="{{ url('vegetales') }}">Vegetales</a></li>
-        <li><a href="{{ url('contacto') }}">Perfil</a></li>
-        <li><a href="{{ url('login') }}">Cerrar sesión</a></li>
+        <li><a href="{{ url('contacto') }}">Contacto</a></li>
+        <li>
+  <form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit" style="background:none;border:none;color:white;cursor:pointer;">
+        Cerrar sesión
+    </button>
+  </form>
+</li>
+
       </ul>
     </nav>
+   
 
     <button class="cart-btn" id="cart-btn">
       🛒
@@ -27,7 +36,7 @@
     </button>
   </header>
 
-  <!-- HERO -->
+  
   <section class="hero">
     <div class="hero-text">
       <h2>¡Frescura y calidad directo del campo a tu mesa! 🍓</h2>
@@ -65,21 +74,41 @@
       </div>
     </div>
   </main>
+  
+<section class="info-section">
+  <div class="info-contenido">
+    <h2>🍊 ¿Por qué elegir FrutaPura?</h2>
+    <p>
+      Nuestras frutas vienen directamente de agricultores locales, sin químicos,
+      y con el máximo nivel de frescura. Comprar aquí es apoyar el campo colombiano 🇨🇴.
+      Calidad real, sabor natural y precios justos.
+    </p>
+  </div>
 
-  <!-- CARRITO -->
-  <aside class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-header">
-      <h2>🛒 Tu Carrito</h2>
-      <button id="close-cart">&times;</button>
-    </div>
-    <ul class="cart-items" id="cart-items"></ul>
-    <div class="cart-total">
-      <p>Total: <span id="total">$0</span></p>
-      <button class="btn-finalizar" id="btn-finalizar">Finalizar Compra</button>
-    </div>
-  </aside>
+  <img src="{{ asset('imagenes/campo.jpg') }}" alt="Campo" class="info-img">
+</section>
 
-  <!-- FOOTER -->
+<section class="testimonios">
+  <h2 class="titulo-testimonios">Lo que dicen nuestros clientes ❤️</h2>
+
+  <div class="testimonios-contenedor">
+    <div class="test-card">
+      <p>"Las frutas llegaron frescas y deliciosas. Excelente servicio 👌"</p>
+      <h4>- Daniela R.</h4>
+    </div>
+
+    <div class="test-card">
+      <p>"Precios buenos y todo muy limpio y bien empacado. Recomendado."</p>
+      <h4>- Cristian M.</h4>
+    </div>
+
+    <div class="test-card">
+      <p>"La mejor calidad que he probado, seguro vuelvo a comprar."</p>
+      <h4>- Andrea S.</h4>
+    </div>
+  </div>
+</section>
+
   <footer>
     <p>© 2025 FrutaPura · Todos los derechos reservados 🍉</p>
   </footer>
@@ -185,6 +214,5 @@
   // ==============================
   document.addEventListener('DOMContentLoaded', actualizarCarrito);
 </script>
-
 </body>
 </html>

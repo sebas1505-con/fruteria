@@ -2,32 +2,27 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class Usuario extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
-    // Nombre real de la tabla
-    protected $table = 'usuarios';
+    protected $table = 'usuarios'; // Muy importante si tu tabla no se llama "users"
 
-    // Llave primaria
-    protected $primaryKey = 'id_usuario'; // cámbialo si tu campo es distinto
-
-    // Campos asignables
     protected $fillable = [
         'nombre',
         'correo',
-        'password',
+        'password'
     ];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
-    // Campo usado para login (Auth)
+    // Para que Auth use "correo" como identificador
     public function getAuthIdentifierName()
     {
         return 'correo';
