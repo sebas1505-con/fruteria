@@ -13,19 +13,10 @@
     <h1 class="logo">FrutaPura</h1>
     <nav>
       <ul class="nav-menu">
-        <li><a href="{{ url('/') }}">Inicio</a></li>
         <li><a href="{{ url('frutas') }}" class="active">Frutas</a></li>
         <li><a href="{{ url('vegetales') }}">Vegetales</a></li>
         <li><a href="{{ url('contacto') }}">Contacto</a></li>
-        <li>
-  <form action="{{ route('logout') }}" method="POST">
-    @csrf
-    <button type="submit" style="background:none;border:none;color:white;cursor:pointer;">
-        Cerrar sesión
-    </button>
-  </form>
-</li>
-
+        <li><a href="{{ url('/') }}">cerrar sesion</a></li>
       </ul>
     </nav>
    

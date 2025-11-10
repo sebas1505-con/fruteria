@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Venta;
 use App\Models\DetalleVenta;
 use App\Models\Envio;
+use Illuminate\Routing\Controller;
 
 class CompraController extends Controller
 {

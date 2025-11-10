@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Envio;
 
-class RepartidorController extends Controller
+class RepartidorController 
 {
     public function index()
     {

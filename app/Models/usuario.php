@@ -22,7 +22,6 @@ class Usuario extends Authenticatable
         'password'
     ];
 
-    // Para que Auth use "correo" como identificador
     public function getAuthIdentifierName()
     {
         return 'correo';

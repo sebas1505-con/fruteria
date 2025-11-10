@@ -43,7 +43,7 @@
         <button type="submit" class="btn-login">Entrar</button>
 
         <p class="extra-text">
-          ¿No tienes cuenta? <a href="{{ route('register.form') }}">Regístrate aquí</a>
+          ¿No tienes cuenta? <a href="">Regístrate aquí</a>
         </p>
         <p class="extra-text">
           <a href="#">¿Olvidaste tu contraseña?</a>
